@@ -1,0 +1,272 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link type="text/css" rel="stylesheet" href="css/default.css" />
+    <link type="text/css" rel="stylesheet" href="css/ui_common.css" />
+    <link rel="icon" href="images/ci.png">
+
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/ui_common.js"></script>
+
+    <title>(주)씨투아이</title>
+</head>
+
+<body>
+
+    <div id="wrap">
+        <!-- header start -->
+        <div id="header">
+            <div class="header_inner">
+                <a href="index.html" class="logo"><span class="hidden">(주)씨투아이</span></a>
+                <button class="icbtn menu"><span>메뉴보기</span></button>
+                <nav id="gnb">
+                    <ul>
+                        <li class="mb_logo">
+                            <a href="index.html"><img src="images/flogo.svg"></a>
+                            <button class="menu_close"><span>메뉴닫기</span></button>
+                        </li>
+                        <li>
+                            <a href="sub01.html" class="top">기업정보</a>
+                            <!--div class="submenu" id="sub1">
+                                <ul>
+                                    <li><a href="#">회사소개</a></li>
+                                    <li><a href="#">주요연혁</a></li>
+                                    <li><a href="#">오시는길</a></li>
+                                </ul>
+                            </div-->
+                        </li>
+                        <li>
+                            <a href="sub02.html" class="top">사업분야</a>
+                            <!--div class="submenu" id="sub2">
+                                <ul>
+                                    <li><a href="#">SI</a></li>
+                                    <li><a href="#">솔루션</a></li>
+                                    <li><a href="#">컨설팅</a></li>
+                                    <li><a href="#">주요고객사</a></li>
+                                </ul>
+                            </div-->
+                        </li>
+                        <li>
+                            <a href="sub03.html" class="top">솔루션</a>
+                            <!--div class="submenu" id="sub3">
+                                <ul>
+                                    <li><a href="#">MES</a></li>
+                                    <li><a href="#">RAG</a></li>
+                                    <li><a href="#">Urban Solution</a></li>
+                                </ul>
+                            </div-->
+                        </li> 
+                        <li>
+                            <a href="sub04.html" class="top">Contact US</a>
+                            <div class="submenu" id="sub4">
+                                
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="submenubg"></div>
+            </div>
+        </div>
+        <!-- header end  -->
+        <!-- container start -->
+        <h2 class="hidden">본문컨텐츠</h2>
+        <div id="container">
+            <div class="svisualbx">
+                <div class="visual_img v_img3"></div>
+                <div class="subtit">
+                    <h2>제품소개</h2>
+                </div>
+            </div>
+            <div class="sub_tabbox">
+                <ul class="tab_list">
+                    <li id="s1"  class="active"><a href="#solution_info1" class="tab_btn">Urban <span>Solution</span></a></li>
+                    <li id="s2"><a href="#solution_info2" class="tab_btn">Smart Factory <span>Solution</span></a></li>
+                    <li id="s3"><a href="#solution_info3" class="tab_btn">AI <span>Solution</span></a></li>
+                    
+                </ul>
+            </div>
+            <div id="contents" class="solution">
+                <div id="solution_info1">
+                   <div class="subtit"  id="solution_info1_1">Urban Solution</div>
+                   <div class="tc pt50" >
+                        <div class="slogan_kr">성장관리 솔루션</div>
+                        <div class="slogan_text mb50">
+                            <p>
+                                성장관리 솔루션은 전국 226 지자체 마다  ‘성장관리계획구역’  고시정보 기준에 민원 요청 시,<br>대상지역의 인센티브 적용 시뮬레이션을 통해 민원 적용 여부를 즉각적으로 확인하고 대응 할 수 있는 솔루션
+                            </p>
+                        </div> 
+                        <div class="graybx">
+                            <table class="solution_table">
+                                <colgroup>
+                                    <col style="width:20%;">
+                                    <col style="width:20%;">
+                                    <col style="width:20%;">
+                                    <col style="width:20%;">
+                                    <col style="width:20%;">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <td><span>구역 검색</span></td>
+                                        <td><span>지번 검색</span></td>
+                                        <td><span>인센티브 검색</span></td>
+                                        <td><span>인센티브 산정</span></td>    
+                                        <td><span>Log관리</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>GMP 산정 Function</span></td>
+                                        <td><span>GMP Map</span></td>
+                                        <td rowspan="2"><span>Qgis Core</span></td>
+                                        <td><span>외부 API연계</span></td>    
+                                        <td><span>GMP License 관리</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>성장관리계획</span></td>
+                                        <td><span>GIS Function</span></td>
+                                        <td><span>Vworld Map</span></td>    
+                                        <td><span>토지e음 연계</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="5"><span>Python</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="ptit">[ 성장관리 솔루션 구조 ]</div>
+
+                            <hr class="line">
+                            <ul class="processbx process1 mb10">
+                                <li>
+                                    <div>지자체 도시계획 담당자</div>
+                                </li>
+                                <li>
+                                    <div>성장관리구역에 필지를 제공하면 어떤 이득이 있나요?</div>
+                                </li>
+                                <li>
+                                    <div>지자체 민원인</div>
+                                </li>
+                            </ul>
+                            <div class="ptit">[ 성장관리계획 인센티브 민원대응 절차 ]</div>
+                            <hr class="line">
+
+                            <ul class="site_list ea2" style="max-width: 1200px;margin: 0;">
+                                <li>
+                                    <img src="images/b_site05.png" alt="성장관리 솔루션 화면1">
+                                </li>
+                                <li>
+                                    <img src="images/b_site06.png" alt="성장관리 솔루션 화면1">
+                                </li>
+                            </ul>
+                        </div>
+                   </div>
+                   <div class="tc pt100" id="solution_info1_2">
+                        <div class="slogan_kr">도시계획 전자 심의 솔루션</div>
+                        <div class="slogan_text mb50">
+                            <p>
+                                도시계획 전자심의 솔루션은 전국 226 지자체 마다  ‘도시계획’ 심의에 필요한 위원회 및 심의 등 <br> 수작업 행정업무를 체계적으로 관리와 운영할 수 있는 솔루션
+                            </p>
+                        </div> 
+                        <div class="graybx">
+                            <div class="imgbx">
+                                <img src="images/RAG_img01.png" alt="도시계획 전자심의 구성도" id="ragimg1">
+                                <img src="images/RAG_img02.png" alt="도시계획 전자심의 구성도" id="ragimg2">
+                                <div class="ptit">[ 도시계획 전자심의 구성도 ]</div>
+                            </div>
+                            
+                            <hr class="line">
+                            <ul class="processbx process2 mb10">
+                                <li>
+                                    <div>안건요청</div>
+                                </li>
+                                <li>
+                                    <div>안건검토</div>
+                                </li>
+                                <li>
+                                    <div>위원회 상정</div>
+                                </li>
+                                <li>
+                                    <div>위원회 개최</div>
+                                </li>
+                                <li>
+                                    <div>위원회 개최 결과</div>
+                                </li>
+                            </ul>
+                            <div class="ptit">[ 도시계획 심의 절차 ]</div>
+                            <hr class="line">
+                            <ul class="site_list ea2" style="max-width: 1200px;margin: 0;">
+                                <li>
+                                    <img src="images/b_site07.png" alt="솔루션 화면예시1">
+                                    <span>솔루션 화면예시1</span>
+                                </li>
+                                <li>
+                                    <img src="images/b_site08.png" alt="솔루션 화면예시2">
+                                    <span>솔루션 화면예시2</span>
+                                </li>
+                            </ul>
+                        </div>
+                   </div>
+                </div>
+                <div id="solution_info2" class="bg-gray">
+                    <div class="subtit">Smart Factory Solution</div>
+                    <div class="tc pt50">
+                        <div class="slogan_kr">C2I AIMES</div>
+                        <div class="slogan_text mb50">
+                            <p>
+                                생산 현장의 데이터를 실시간으로 수집·분석하여 공정 이상을 사전에 감지하고, 품질·설비·생산성을 동시에 개선하는 AI 기반 스마트 MES 솔루션
+                            </p>
+                        </div> 
+                        <div class="graybx">
+                            <ul class="site_list ea2" style="max-width: 1200px;margin: 0;">
+                                <li>
+                                    <img src="images/b_site09.png" alt="C2I AIMES 화면">
+                                </li>
+                                <li>
+                                    <img src="images/b_site10.png" alt="C2I AIMES 화면">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div id="solution_info3">
+                    <div class="subtit">AI Solution</div>
+                    <div class="tc pt50">
+                        <div class="slogan_kr">C2I Urban LexAI</div>
+                        <div class="slogan_text mb50">
+                            <p>
+                                복잡한 도시계획·건축·부동산·인허가 등 관련 도시법률을 AI가 분석하여, 공공과 민간 모두가 빠르고 정확한 의사결정을 할 수 있도록 지원하는 솔루션
+                            </p>
+                        </div> 
+                        <div class="graybx">
+                            <ul class="site_list ea2" style="max-width: 1200px;margin: 0;">
+                                <li>
+                                    <img src="images/b_site11.png" alt="Urban LexAI 화면1">
+                                </li>
+                                <li>
+                                    <img src="images/b_site12.png" alt="Urban LexAI 화면2">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <!-- container end -->
+        <!-- footer start -->
+        <h2 class="hidden">하단영역</h2>
+        <div id="footer">
+            <img class="flogo" src="images/flogo.svg" alt="(주)씨투아이">
+            <p class="txt_copyright">
+                대표이사:문성환&nbsp;&nbsp; | &nbsp;&nbsp;사업자등록번호 : 711-88-01903&nbsp;&nbsp; | &nbsp;&nbsp;주소: 경기도 안양시 동안구 시민대로 248번길 25, 안양산업진흥원 406호
+                대표번호:070-4117-6371~2&nbsp;&nbsp; | &nbsp;&nbsp;FAX:031-383-6370<br>
+                COPYRIGHT ⓒ C2I  ALL RIGHTS RESERVED
+            </p>
+        </div>
+        <!-- footer end -->
+    </div>
+    <!-- wrap end -->
+</body>
+</html>

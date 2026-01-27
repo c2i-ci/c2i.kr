@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/aos.css" />
+    <link rel="stylesheet" type="text/css" href="css/xeicon.css" />
+    <link rel="stylesheet" type="text/css" href="css/default.css"/>
+    <link rel="stylesheet" type="text/css" href="css/ui_common.css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="icon" href="images/ci.png">
+
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/ui_common.js"></script>
+    
+    <title>(주)씨투아이</title>
+</head>
+<body>
+    <!-- wrap start -->
+    <div id="wrap" class="main">
+        <!-- header start -->
+        <div id="header">
+            <div class="header_inner">
+                <a href="index.html" class="logo"><span class="hidden">(주)씨투아이</span></a>
+                <button class="icbtn menu"><span>메뉴보기</span></button>
+                <nav id="gnb">
+                    <ul>
+                        <li class="mb_logo">
+                            <a href="index.html"><img src="images/flogo.svg"></a>
+                            <button class="menu_close"><span>메뉴닫기</span></button>
+                        </li>
+                        <li>
+                            <a href="sub01.html" class="top">기업정보</a>
+                            <!--div class="submenu" id="sub1">
+                                <ul>
+                                    <li><a href="#">회사소개</a></li>
+                                    <li><a href="#">주요연혁</a></li>
+                                    <li><a href="#">오시는길</a></li>
+                                </ul>
+                            </div-->
+                        </li>
+                        <li>
+                            <a href="sub02.html" class="top">사업분야</a>
+                            <!--div class="submenu" id="sub2">
+                                <ul>
+                                    <li><a href="#">SI</a></li>
+                                    <li><a href="#">솔루션</a></li>
+                                    <li><a href="#">컨설팅</a></li>
+                                    <li><a href="#">주요고객사</a></li>
+                                </ul>
+                            </div-->
+                        </li>
+                        <li>
+                            <a href="sub03.html" class="top">솔루션</a>
+                            <!--div class="submenu" id="sub3">
+                                <ul>
+                                    <li><a href="#">MES</a></li>
+                                    <li><a href="#">RAG</a></li>
+                                    <li><a href="#">Urban Solution</a></li>
+                                </ul>
+                            </div-->
+                        </li> 
+                        <li>
+                            <a href="sub04.html" class="top">Contact US</a>
+                            <div class="submenu" id="sub4">
+                                
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="submenubg"></div>
+            </div>
+        </div>
+        <!-- header end  -->
+        <!-- container start -->
+       <div id="container">
+           <!-- main part1 start -->
+            <div class="sec01" >
+                <div class="swiper visual_slide">
+                    <div class="textbox">
+                        <div class="slogan">초(超)시대를 개척하는 기업 <span class="color">C2I</span></div>
+                        <div class="holding">
+                            <span class="change on">Hyper-<span class="color">C</span>onnectivity : 초(超)연결</span>
+                            <span class="change">Hyper-<span class="color">C</span>onvergence : 초(超)융합</span>
+                            <span class="change">Hyper-<span class="color">I</span>ntelligence : 초(超)지능</span>
+                        </div>
+                        
+                    </div>
+                    <div class="swiper-wrapper">
+                        <div class="slide_item swiper-slide">
+                            <div class="bg" style="background-image: url(images/main/visual_1.jpg);"></div>
+                        </div>
+                        <div class="slide_item swiper-slide">
+                            <div class="bg" style="background-image: url(images/main/visual_2.jpg);"></div>
+                        </div>
+                        <div class="slide_item swiper-slide">
+                            <div class="bg" style="background-image: url(images/main/visual_3.jpg);"></div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <script>
+                    var swiper = new Swiper(".visual_slide", {
+                        speed : 1000,
+                        allowTouchMove: true,
+                        loop: true,
+                        loopAdditionalSlides : 1,
+                        mousewheel: false,
+                        watchSlidesProgress: true,
+                        autoplay: {
+                            delay: 3000,
+                            disableOnInteraction: false,
+                        },
+                        pagination: {
+                           el: ".swiper-pagination",
+                            clickable: true,
+                        },
+                        on : {
+                            progress: function() {
+                                for (var i = 0; i < this.slides.length; i++) {
+                                    var slideProgress = this.slides[i].progress;
+                                    var innerOffset = this.width * 0.5;
+                                    var innerTranslate = slideProgress * innerOffset;
+                                    this.slides[i].querySelector('.bg').style.transform = `translate3d(${innerTranslate}px,0,0)`;
+                                }
+                            },
+                            setTransition: function(swiper,speed) {
+                                for (var i = 0; i < this.slides.length; i++) {
+                                    this.slides[i].style.transition = speed + 'ms';
+                                    this.slides[i].querySelector('.bg').style.transition = speed + 'ms';
+                                }
+                            },
+                            slideChange : function() {
+                                $('.visual_slide .slogan span').eq(this.realIndex).addClass('active').siblings().removeClass('active');
+                                $('.visual_slide .holding .change').eq(this.realIndex).addClass('on').siblings().removeClass('on');
+
+                            },
+                        }
+                    });
+                </script>
+                <div class="scrolling">
+                    SCROLL
+                    <span class="gage"><span class="gage_bar"></span></span>
+                </div>
+            </div>
+            <!-- main part1 end -->
+            <!-- main part2 start -->
+            <div class="sec02">
+				<div class="main-tit-box" >
+                    <div class="brand_slogan" data-aos="fade-up" data-aos-easing="linear"  data-aos-duration="500">What we do</div>
+                    <div class="brand_text" data-aos="fade-up" data-aos-easing="linear"  data-aos-duration="600">Digital Transformation, 초연결 비즈니스 시대에 고객의 혁신과 성장 DNA를 견인합니다.</div>
+				</div>
+				<div class="main-business-list">
+					<div class="list-item" data-aos="fade-up" data-aos-easing="linear"  data-aos-duration="500">
+						<a href="sub02.html#business_info1" class="inner">
+							<div class="txt-box">
+								<h5 class="tit">금융 분야</h5>
+								<p class="txt">금융의 미래를 설계하는 디지털 혁신 파트너<br>깊은 산업 이해도가 만드는 차원이 다른 금융 서비스</p>
+							</div>
+							<div class="img-box" data-mouse-pointer="view">
+								<div class="img img1"></div>
+								<span class="icon"><i class="xi-plus-min"></i><span>VIEW</span></span>
+							</div>
+						</a>
+					</div>
+					<div class="list-item" data-aos="fade-down" data-aos-easing="linear"  data-aos-duration="500">
+						<a href="sub02.html#business_info2" class="inner">
+							<div class="txt-box">
+								<h5 class="tit">GIS 분야</h5>
+								<p class="txt">도시와 환경을 잇는 정밀한 공간 데이터 구축<br>신뢰성 높은 GIS 플랫폼으로 스마트한 미래를 만듭니다.</p>
+							</div>
+							<div class="img-box" data-mouse-pointer="view">
+								<div class="img img2"></div>
+								<span class="icon"><i class="xi-plus-min"></i><span>VIEW</span></span>
+							</div>
+						</a>
+					</div>
+					<div class="list-item" data-aos="fade-up" data-aos-easing="linear"  data-aos-duration="500">
+						<a href="sub02.html#business_info3" class="inner">
+							<div class="txt-box">
+								<h5 class="tit">AI 분야</h5>
+								<p class="txt">데이터 분석부터 AI 모델 고도화<br>전문 기술로 최적화된 지능형 의사결정 체계 구축</p>
+							</div>
+							<div class="img-box" data-mouse-pointer="view">
+								<div class="img img3"></div>
+								<span class="icon"><i class="xi-plus-min"></i><span>VIEW</span></span>
+							</div>
+						</a>
+					</div>
+					<div class="list-item" data-aos="fade-down" data-aos-easing="linear"  data-aos-duration="500">
+						<a href="sub02.html#business_info4" class="inner">
+							<div class="txt-box">
+								<h5 class="tit">컨설팅</h5>
+								<p class="txt">복잡한 데이터를 지능형 전략으로 변환하는 힘<br>기술 그 이상의 가치를 창출하는 파트너</p>
+							</div>
+							<div class="img-box" data-mouse-pointer="view">
+								<div class="img img4"></div>
+								<span class="icon"><i class="xi-plus-min"></i><span>VIEW</span></span>
+							</div>
+						</a>
+					</div>
+				</div>
+            </div>
+            <!-- main part2 end -->
+            <!-- main part3 start -->
+            <div class="sec03" >
+                <div class="main-tit-box" >
+                    <div class="brand_slogan" data-aos="fade-up" data-aos-easing="linear"  data-aos-duration="500">Solution</div>
+                    <div class="brand_text" data-aos="fade-up" data-aos-easing="linear"  data-aos-duration="600">비즈니스와 핵심기술을 접목하여 새로운 가치를 창출 및 시장 경쟁력을 확보하기 위해 노력 하고 있습니다.</div>
+				</div>
+                <ul class="main-solution-list">
+                    <li class="bg1" data-aos="fade-up" data-aos-easing="linear"  data-aos-duration="500">
+                        <a href="sub03.html#solution_info1_1" class="inner">
+                            <div class="txt-box">
+                                <p class="txt">Urban Solution</p>
+                                <h5 class="tit">성장관리 솔루션</h5>
+                                <span class="icon"><i class="xi-plus-min"></i><span>VIEW</span></span>
+                            </div>
+							<div class="img-box" data-mouse-pointer="view">
+								<div class="img img4"></div>
+							</div>
+						</a>
+                    </li>
+                    <li class="bg2" data-aos="fade-down" data-aos-easing="linear"  data-aos-duration="500">
+                        <a href="sub03.html#solution_info1_2" class="inner">
+                            <div class="txt-box">
+                                <p class="txt">Urban Solution</p>
+                                <h5 class="tit">도시계획 전자 심의 솔루션</h5>
+                                <span class="icon"><i class="xi-plus-min"></i><span>VIEW</span></span>
+                            </div>
+							<div class="img-box" data-mouse-pointer="view">
+								<div class="img img2"></div>
+								
+							</div>
+						</a>
+                    </li>
+                    <li class="bg1" data-aos="fade-up" data-aos-easing="linear"  data-aos-duration="500">
+                        <a href="sub03.html#solution_info2" class="inner">
+                            <div class="txt-box">
+                                <p class="txt">MES</p>
+                                <h5 class="tit">C2I AIMES</h5>
+                                <span class="icon"><i class="xi-plus-min"></i><span>VIEW</span></span>
+                            </div>
+							<div class="img-box" data-mouse-pointer="view">
+								<div class="img img1"></div>
+							</div>
+						</a>
+                    </li>
+                    <li class="bg3" data-aos="fade-down" data-aos-easing="linear"  data-aos-duration="500">
+                        <a href="sub03.html#solution_info3" class="inner">
+                            <div class="txt-box">
+                                <p class="txt">AI Solution</p>
+                                <h5 class="tit">C2I Urban LexAI</h5>
+                                <span class="icon"><i class="xi-plus-min"></i><span>VIEW</span></span>
+                            </div>
+							<div class="img-box" data-mouse-pointer="view">
+								<div class="img img3"></div>
+								
+							</div>
+						</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- main part3 end -->
+        </div>
+        <!-- container end -->
+        <!-- footer start -->
+        <h2 class="hidden">하단영역</h2>
+        <div id="footer">
+            <img class="flogo" src="images/flogo.svg" alt="(주)씨투아이">
+            <p class="txt_copyright">
+                대표이사:문성환&nbsp;&nbsp; | &nbsp;&nbsp;사업자등록번호 : 711-88-01903&nbsp;&nbsp; | &nbsp;&nbsp;주소: 경기도 안양시 동안구 시민대로 248번길 25, 안양산업진흥원 406호
+                대표번호:070-4117-6371~2&nbsp;&nbsp; | &nbsp;&nbsp;FAX:031-383-6370<br>
+                COPYRIGHT ⓒ C2I  ALL RIGHTS RESERVED
+            </p>
+        </div>
+        <!-- footer end -->
+        
+    
+
+    </div>
+    <!-- wrap end -->
+    <script src="js/aos.js"></script>
+    <script>
+        AOS.init({
+            easing: 'ease-out-back',
+            duration: 1000,
+            disable: function () {
+                var desktop = 1280;
+                return window.innerWidth < desktop;
+            } // 1280px 이상일 때 disable
+
+        });
+    </script>
+</body>
+</html>
