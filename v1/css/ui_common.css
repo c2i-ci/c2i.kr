@@ -217,6 +217,20 @@ hr.line{border:none;border-top:1px dashed #ccc;margin:40px 0;width:100%;height: 
 .cimg8{background: url(../images/c_img08.png) center center no-repeat;background-size: cover;width: 308px;height: auto;background-size: 100%;}
 
 
+.carousel { margin: 0 auto; padding: 20px 0; max-width: 1460px; overflow: hidden; display: flex;  }
+.carousel > * { flex: 0 0 100%;   }
+.group {display: flex;gap: 20px;/* 마지막 카드와 첫 번째 카드 사이에 여백을 만들기 위해 우측에 패딩을 추가합니다. */padding-right: 20px;will-change: transform; /* 브라우저에 애니메이션할 것을 미리 알려 친절하게 대하세요. */  animation: scrolling 10s linear infinite;}
+@keyframes scrolling {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }   
+}
+.card { width: 100%;min-width: 300px; padding: 20px; justify-content: center; align-items: center; }
+
+
 /* ====================== TABLET ======================*/
 @media all and (max-width:1199px) {
     #contents > div{padding: 180px 0;}
@@ -328,6 +342,8 @@ hr.line{border:none;border-top:1px dashed #ccc;margin:40px 0;width:100%;height: 
     .cimg6{width: calc(260px / 2);}
     .cimg7{width: calc(381px / 2);}
     .cimg8{width: calc(308px / 2);}
+
+    .card { min-width:200px; }
 
  }
 
