@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     resize();
-    setFlowBanner();  
+    //setFlowBanner();  
     $(window).resize(function () {
         resize();
         setFlowBanner();  
