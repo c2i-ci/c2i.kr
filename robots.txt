@@ -1,4 +1,5 @@
 User-agent: *
+Allow: /sitemap.xml
 Allow: /v1/
 Disallow: /
 Crawl-delay: 2
