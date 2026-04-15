@@ -8,9 +8,6 @@ on:
 permissions:
   contents: write
 
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
 jobs:
   sitemap_generator:
     runs-on: ubuntu-latest
@@ -18,16 +15,20 @@ jobs:
       - name: Checkout the repo
         uses: actions/checkout@v4
 
-      - name: Generate Sitemap
-        uses: cicirello/generate-sitemap@v1
-        with:
-          base-url-path: https://c2i.kr/
-          # 루트(.)부터 하위 폴더까지 모두 스캔하도록 설정
-          path-to-root: .
-          # html 확장자를 명시적으로 포함
-          include-html: true
-          # sitemap-format을 xml로 고정
-          sitemap-format: xml
+      - name: Manual Sitemap Generation
+        run: |
+          echo '<?xml version="1.0" encoding="UTF-8"?>' > sitemap.xml
+          echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> sitemap.xml
+          
+          # v1 폴더 내의 모든 .html 파일을 찾아 loc 태그로 변환
+          find v1 -name "*.html" | while read file; do
+            echo "  <url>" >> sitemap.xml
+            echo "    <loc>https://c2i.kr/$file</loc>" >> sitemap.xml
+            echo "    <lastmod>$(date +%Y-%m-%d)</lastmod>" >> sitemap.xml
+            echo "  </url>" >> sitemap.xml
+          done
+          
+          echo '</urlset>' >> sitemap.xml
 
       - name: Commit and push if changed
         run: |
