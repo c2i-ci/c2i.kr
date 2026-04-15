@@ -25,7 +25,7 @@ jobs:
       - name: Generate Sitemap for v1
         uses: cicirello/generate-sitemap@v1
         with:
-          base-url-path: https://c2i.kr/v1/
+          base-url-path: https://c2i.kr/
           path-to-root: v1
           sitemap-format: xml
           # v1 안에 html이 없을 수도 있으므로, 다른 확장자들을 명시합니다.
