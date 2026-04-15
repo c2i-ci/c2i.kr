@@ -1,0 +1,33 @@
+name: Generate v1 XML Sitemap
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sitemap_generator:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 
+
+      - name: Generate Sitemap for v1
+        uses: cicirello/generate-sitemap@v1
+        with:
+          # 사이트맵에 기록될 기준 URL을 v1으로 설정
+          base-url-path: https://c2i.kr/v1/
+          # 저장소 내에서 스캔할 시작 위치를 v1 폴더로 한정
+          path-to-root: v1
+          # 생성된 sitemap.xml 파일을 저장소 루트(.)에 저장
+          sitemap-format: xml
+          out-file: sitemap.xml
+
+      - name: Commit and push if changed
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add sitemap.xml
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Automated sitemap update for v1" && git push)
