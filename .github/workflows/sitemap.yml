@@ -5,7 +5,7 @@ on:
     branches:
       - main
 
-permissions: # 128 에러(권한) 방지를 위해 명시적으로 쓰기 권한 부여
+permissions:
   contents: write
 
 jobs:
@@ -13,26 +13,33 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repo
-        uses: actions/checkout@v4 # Node 24 대응을 위해 v4로 업데이트
+        uses: actions/checkout@v4
+
+      - name: Debug - List files
+        run: |
+          echo "Current directory structure:"
+          ls -R
+          # v1 폴더가 있는지, 그 안에 .html이 있는지 확인하는 단계입니다.
 
       - name: Generate Sitemap for v1
         uses: cicirello/generate-sitemap@v1
+        continue-on-error: true # 오류 발생 시 로그만 남기고 중단 방지
         with:
           base-url-path: https://c2i.kr/v1/
           path-to-root: v1
           sitemap-format: xml
-          # 'out-file' 대신 공식 지원하는 파일명은 기본값(sitemap.xml)을 사용합니다.
-          # 특정 파일명을 원할 경우 추가 설정이 필요하나, 기본값 사용을 권장합니다.
 
       - name: Commit and push if changed
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          # 파일이 실제 생성되었는지 확인 후 커밋
+          
+          # sitemap.xml이 생성되었는지 체크
           if [ -f sitemap.xml ]; then
             git add sitemap.xml
             git diff --quiet && git diff --staged --quiet || (git commit -m "Automated sitemap update for v1" && git push)
+            echo "Sitemap updated successfully."
           else
-            echo "sitemap.xml not found. Check if 'v1' directory has html files."
+            echo "Error: sitemap.xml was not generated. Please check if 'v1' directory contains .html files."
             exit 1
           fi
