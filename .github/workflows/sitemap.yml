@@ -1,4 +1,4 @@
-name: Generate XML Sitemap
+name: Generate v1 XML Sitemap
 
 on:
   push:
@@ -15,24 +15,31 @@ jobs:
       - name: Checkout the repo
         uses: actions/checkout@v4
 
-      - name: Manual Sitemap Generation
+      - name: Manual Sitemap Generation for v1 Only
         run: |
+          # 1. 사이트맵 헤더 작성
           echo '<?xml version="1.0" encoding="UTF-8"?>' > sitemap.xml
           echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> sitemap.xml
           
-          # v1 폴더 내의 모든 .html 파일을 찾아 loc 태그로 변환
-          find v1 -name "*.html" | while read file; do
+          # 2. 오직 v1 폴더 내의 .html 파일만 검색하여 추가
+          # -maxdepth 2 옵션으로 v1 내부까지만 탐색 (필요 시 조절)
+          find v1 -name "*.html" -type f | while read file; do
             echo "  <url>" >> sitemap.xml
             echo "    <loc>https://c2i.kr/$file</loc>" >> sitemap.xml
             echo "    <lastmod>$(date +%Y-%m-%d)</lastmod>" >> sitemap.xml
             echo "  </url>" >> sitemap.xml
           done
           
+          # 3. 사이트맵 푸터 작성
           echo '</urlset>' >> sitemap.xml
 
       - name: Commit and push if changed
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add sitemap.xml
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Automated sitemap update" && git push)
+          
+          # 파일 생성 여부 확인 후 커밋
+          if [ -s sitemap.xml ]; then
+            git add sitemap.xml
+            git diff --quiet && git diff --staged --quiet || (git commit -m "Automated sitemap update for v1 only" && git push)
+          fi
