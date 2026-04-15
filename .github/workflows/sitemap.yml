@@ -3,10 +3,13 @@ name: Generate XML Sitemap
 on:
   push:
     branches:
-      - main  # 배포 브랜치 이름이 master라면 master로 수정하세요.
+      - main
 
 permissions:
-  contents: write  # 파일을 생성하고 push하기 위해 반드시 필요합니다.
+  contents: write
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   sitemap_generator:
@@ -18,7 +21,13 @@ jobs:
       - name: Generate Sitemap
         uses: cicirello/generate-sitemap@v1
         with:
-          base-url-path: https://c2i.kr/  # 본인의 도메인 주소
+          base-url-path: https://c2i.kr/
+          # 루트(.)부터 하위 폴더까지 모두 스캔하도록 설정
+          path-to-root: .
+          # html 확장자를 명시적으로 포함
+          include-html: true
+          # sitemap-format을 xml로 고정
+          sitemap-format: xml
 
       - name: Commit and push if changed
         run: |
