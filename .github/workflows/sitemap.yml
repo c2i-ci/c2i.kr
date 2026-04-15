@@ -1,32 +1,28 @@
-name: Generate Sitemap
+name: Generate XML Sitemap
+
 on:
-  schedule:
-    - cron: '0 2 * * *'  # 매일 새벽 2시
-  workflow_dispatch:     # 수동 실행 가능
   push:
-    branches: [ main ]
-    paths: [ 'v1/**' ]
+    branches:
+      - main  # 배포 브랜치 이름이 master라면 master로 수정하세요.
+
+permissions:
+  contents: write  # 파일을 생성하고 push하기 위해 반드시 필요합니다.
 
 jobs:
-  generate-sitemap:
+  sitemap_generator:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '20'
-        
-    - name: Generate sitemap
-      run: |
-        npm install
-        npm run generate:sitemap  # /v1/ 경로만 포함
-      
-    - name: Deploy sitemap
-      run: |
-        git config user.name "GitHub Action"
-        git config user.email "action@github.com"
-        git add sitemap.xml
-        git commit -m "Update sitemap [skip ci]" || exit 0
-        git push
+      - name: Checkout the repo
+        uses: actions/checkout@v4
+
+      - name: Generate Sitemap
+        uses: cicirello/generate-sitemap@v1
+        with:
+          base-url-path: https://c2i.kr/  # 본인의 도메인 주소
+
+      - name: Commit and push if changed
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add sitemap.xml
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Automated sitemap update" && git push)
