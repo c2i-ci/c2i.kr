@@ -1,3 +1,2 @@
 User-agent: *
-Crawl-delay: 2
 Sitemap: https://c2i.kr/sitemap.xml
